@@ -1,0 +1,38 @@
+## The python class has two method to caluclate area and perimeter of a circle:
+
+class Circle():
+  def __init__(self, radius):
+    self.radius = radius
+  def area(self):
+    return 3.14 * self.radius * self.radius 
+  
+  def perimeter(self):
+    return 2 * 3.14 * self.radius
+    
+## Changing the value of pi will require the changes to be done in two places or pi value stored in a variable.
+
+class Circle():
+  def __init__(self, radius):
+    self.radius = radius
+    self.pi = 3.14
+  def area(self):
+    return self.pi * self.radius * self.radius 
+  
+  def perimeter(self):
+    return 2 * self.pi * self.radius
+    
+ 
+## Instead use a function that returns pi with the tag @property.
+
+class Circle():
+  def __init__(self, radius):
+    self.radius = radius
+   
+  @property
+  def pi(self):
+    return 3.14
+  def area(self):
+    return self.pi * self.radius * self.radius 
+  
+  def perimeter(self):
+    return 2 * self.pi * self.radius
