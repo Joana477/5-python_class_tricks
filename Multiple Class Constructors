@@ -1,0 +1,22 @@
+# In Python, the constructor for a class is defined with the __init__ method. Unfortunately, function overloading is not allowed, 
+# and therefore we can only define one such function. However, there is a way to have methods that can be used similarly to 
+# a class constructor. This can be done using the tag @classmethod.
+
+# A new Date object can now be created by calling the fromString method:
+
+
+class Date():
+  def __init__(self, day, month, year):
+    self.day = day
+    self.month = month
+    self.year = year
+
+@classmethod
+def fromString(cls, s):
+   day = int(s[:2])
+   month = int(s[3:5])
+   year = int(s[6:])
+   return cls(day, month, year) # Return a new object
+   
+d = Date.fromString("21/07/2020")
+print(d.day, d.month, d.year)
