@@ -1,0 +1,21 @@
+## Suppose you have in your program a variable that represents the day of the week. You would probably represent it as an integer, 
+## so for example Monday is 1, Tuesday is 2, etc. However, this is not optimal, because you have to remember whether you started 
+## with a zero or with a one. Furthermore, when you print that value it will be just an integer, so you need a function to transform 
+## it into the correct name.
+## Luckily, we can use the Enum class from the enum library. When you create a subclass of Enum , it contains a set of variables each 
+## with its own values, that you can use in your program. For example, in the previous case you would write something like:
+
+
+from enum import Enum
+class WeekDay(Enum):
+  Monday = 1
+  Tuesday = 2
+  Wednesday = 3
+  Thursday = 4
+  Friday = 5
+  Saturday = 6
+  Sunday = 7
+  
+day = WeekDay.Friday   ## set a variable to the value Friday
+
+intDay = day.value     ## To get the integer value that Friday represents. This will be 5
