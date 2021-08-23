@@ -1,0 +1,26 @@
+## If you want to create your own iterator, you just have to implement the __next__ and __iter__methods.
+## __iter__ should return the iterator object (so it return self in most cases)
+## __next__ should return the next element of the data structure
+## Suppose we are creating an iterator to cycle over a list backward. The right way to do this is:
+
+
+class Backward():
+  def __init__(self, data):
+    self.data = data # The list we want to iterate 
+    self.index = len(self.data)
+  def __iter__(self):
+    return self
+  def __next__(self):
+    if(self.index == 0):
+      raise StopIteration
+    else:
+      self.index -= 1
+      return self.data[self.index]
+      
+## The __next__ function should raise a StopIteration error if there are no more elements to iterate over. 
+## Otherwise, it will return the next element to see. Now we can use a Backward object inside a for loop:
+
+
+bw = Backward([1,2,3,4,5])
+for elem in bw:
+  print(elem)
