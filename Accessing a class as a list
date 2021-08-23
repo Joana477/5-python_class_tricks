@@ -1,0 +1,21 @@
+## When we are using lists, we can access specific values using square brackets. It would be nice to be able to implement something similar for our own classes. We can use __getitem__ and __setitem__ to do just that. These are the methods that are called by a list when we use the square brackets:
+## x = l[idx] is the same as writing x = l.__getitem__(idx)
+## l[idx] = x is the same as writing l.__setitem__(idx, x)
+## So if we implement these two methods in our class, we will then be able to use the square brackets as we would do for a list.
+## Here is a really easy example (it is a list whose size cannot be changed, and whose index start at 1):
+
+
+class MyList():
+  def __init__(self, dimension):
+    self.l = [0 for i in range(dimension)]
+  
+  def __getitem__(self, idx):
+    return self.l[idx-1]
+  
+  def __setitem__(self, idx, data):
+    self.l[idx-1]=data
+
+ml = MyList(5)
+ml[1] = 50 # Set the first element of ml to 50
+ml[2] = 100 # Set the second element of ml to 100
+x = ml[1] # x is now 50
